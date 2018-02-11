@@ -8,23 +8,27 @@
     <script src="/vendors/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="css/creamAndBlue.css" />
     <script src="/scripts/client.js"></script>
-    <img src="http://wildfireradio.com/wp-content/uploads/2017/08/taxes-lionel-richie-900-cs032713.jpg" alt="">
+    
 </head>
 <body>
     <h1>Hello, is it math you're looking for?</h1>
+    <h1><img src="http://wildfireradio.com/wp-content/uploads/2017/08/taxes-lionel-richie-900-cs032713.jpg" alt=""></h1>
+
     <h2>Let's do some math!</h2>
         <h3><input type="number" id="x" placeholder="X">
         <select name="mathType" id="mathType">
-            <option value="add">Add</option>
-            <option value="sub">Subtract</option>
-            <option value="multiply">Multiply</option>
-            <option value="divide">Divide</option>
+            <option value="+">plus</option>
+            <option value="-">minus</option>
+            <option value="x">multiplied by</option>
+            <option value="÷">divided by</option>
         </select>
         <input type="number" id="y" placeholder="Y">
         =
         <button id="submitMath">Math Me!</button>
         </h3>
-    
-    <h3 class="mathHistory">Previous equations:</h3>
+        <h3 id="currentOperation">What are we working on?</h3>
+        <div id="current"></div>
+    <h2>Previous Equations:</h2>
+        <div class="mathHistory">Previous equations:</div>
 </body>
 </html>

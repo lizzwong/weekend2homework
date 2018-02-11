@@ -1,10 +1,10 @@
 const Equation = require('./equation-class');
 
 const arrayOfEquations = [
- new Equation('X', 'add', 'Y'),
- new Equation('X', 'subtract', 'Y'),
- new Equation('X', 'multiply', 'Y'),
- new Equation('X', 'divide', 'Y')   
+    new Equation('X', '+', 'Y', ''),
+    new Equation('X', '-', 'Y', ''),
+    new Equation('X', 'x', 'Y', ''),
+    new Equation('X', '÷', 'Y', '')   
 ]
 
 function addEq(equation) {
