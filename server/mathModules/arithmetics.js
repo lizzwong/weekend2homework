@@ -1,29 +1,30 @@
-function mathematics( valueOfX, arithmetic, valueOfY ){
+    function mathematics( valueOfX, arithmetic, valueOfY ){
+        console.log('in mathematics!');
+        
+        let x = parseInt( valueOfX );
+        let y = parseInt( valueOfY );
+        
 
-    let x = parseInt( valueOfX );
-    let y = parseInt( valueOfY );
-    
-    if (arithmetic == '+'){
-        console.log( x, '+', y );
-        return x+y;
-    }
+        if (arithmetic == '+'){
+            console.log( x, '+', y );
+            return x + y;
+        }
 
-    else if (arithmetic == '-'){
-        console.log( x, '-', y);
-        return x-y;
-    }
+        else if (arithmetic == '-'){
+            console.log( x, '-', y);
+            return x - y;
+        }
 
-    else if (arithmetic == 'x'){
-        console.log( x, 'x', y);
-        return x*y;
-    }
+        else if (arithmetic == 'x'){
+            console.log( x, 'x', y);
+            returnx * y;
+        }
 
-    else {
-        console.log( x, '÷', y);
-        return x/y
-    }
- }
+        else {
+            console.log( x, '÷', y);
+            return x / y;
+        }
+        
+    }//please give me answers
 
- let totalSum = mathematics();
-
- module.exports = totalSum;
+module.exports = mathematics;

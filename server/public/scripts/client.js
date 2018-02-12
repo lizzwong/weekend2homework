@@ -5,11 +5,12 @@ function onReady() {
     $('#submitMath').on('click',function(event){
     event.preventDefault();
     addEquation();
+    useMath();
     // console.log('way to click a button');
     
 })
     getAllEquations();  
-    
+    // mathematics();
 }
 
 function getAllEquations (){
@@ -18,7 +19,7 @@ function getAllEquations (){
         url : '/maths'
     }).done(function(response){
     //request was successful
-        console.log('woo way to go');
+        // console.log('woo way to go');
         displayEquations(response);
         currentEquation(response);
     }).fail(function(response){
@@ -26,14 +27,32 @@ function getAllEquations (){
         console.log('nope, try again');
     
     });
+}//getting array of equations from server
+
+function mathematics (){
+    $.ajax({
+        type: 'get',
+        url: '/maths/usemath'
+    }).done(function (response) {
+        //request was successful
+        console.log(response);
+        // displaySums();
+    }).fail(function (response) {
+        //no connection from server
+        console.log('nope, try again');
+
+    });
+
 }
+
+
 
 function displayEquations(equations){
     $('.mathHistory').empty();
     let $ul = $('<ul></ul>');
     for (let equation of equations) {
         $ul.append(`<li>
-        ${equation.valueOfX}  ${equation.arithmetic}  ${equation.valueOfY} = ${equation.sum}
+        ${equation.valueOfX}  ${equation.arithmetic}  ${equation.valueOfY} = ${equation.totalMath}
         </li>`);
     }
     $('.mathHistory').append($ul);
@@ -43,7 +62,7 @@ function currentEquation(equations) {
     let equation = equations[equations.length-1]
     $('#current').empty();
         $('#current').append(`<div>
-        ${equation.valueOfX}  ${equation.arithmetic}  ${equation.valueOfY} = ${equation.sum}
+        ${equation.valueOfX}  ${equation.arithmetic}  ${equation.valueOfY} = ${equation.totalMath}
         </div>`)
 }//display current equation on the DOM
 
@@ -64,7 +83,19 @@ function addEquation() {
     });
 }
 
+function useMath() {
+    let  newEquation = getEquation();
+    $.ajax({
+        type: 'post',
+        url: '/maths/operations',
+        data: { equation: newEquation },
+    }).done(function (response) {
+        console.log('sent to math');
+    }).fail(function (error) {
+        console.log('try again');
 
+    });
+}
 
 function getEquation() {
     let valueOfX = $('#x').val();
